@@ -11,5 +11,23 @@
       "StackId": "arn:aws:cloudformation:eu-west-1:980426692404:stack/amplify-gleegsdevopsa4-develop-154758/7c3e35f0-9db4-11ee-a6c8-0aae1f8ce745",
       "AmplifyAppId": "d3ukvc1o208ctb"
     }
+  },
+  "maxdev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-gleegsdevopsa4-maxdev-155826-authRole",
+      "UnauthRoleArn": "arn:aws:iam::980426692404:role/amplify-gleegsdevopsa4-maxdev-155826-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::980426692404:role/amplify-gleegsdevopsa4-maxdev-155826-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-gleegsdevopsa4-maxdev-155826-deployment",
+      "UnauthRoleName": "amplify-gleegsdevopsa4-maxdev-155826-unauthRole",
+      "StackName": "amplify-gleegsdevopsa4-maxdev-155826",
+      "StackId": "arn:aws:cloudformation:eu-west-1:980426692404:stack/amplify-gleegsdevopsa4-maxdev-155826/eebeb0e0-9db5-11ee-bc8a-023d7abaafdd",
+      "AmplifyAppId": "d3ukvc1o208ctb"
+    },
+    "categories": {
+      "storage": {
+        "gleegsDevopsDB": {}
+      }
+    }
   }
 }

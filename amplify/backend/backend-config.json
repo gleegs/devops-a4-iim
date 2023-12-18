@@ -1,1 +1,8 @@
-{}
+{
+  "storage": {
+    "gleegsDevopsDB": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    }
+  }
+}
