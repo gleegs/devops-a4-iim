@@ -27,6 +27,9 @@
     "categories": {
       "storage": {
         "gleegsDevopsDB": {}
+      },
+      "auth": {
+        "gleegsdevopsa487af3044": {}
       }
     }
   }
