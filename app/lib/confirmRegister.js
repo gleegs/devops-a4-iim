@@ -1,10 +1,11 @@
 import { confirmSignUp } from 'aws-amplify/auth';
 
-export async function handleSignUpConfirmation({ username, confirmationCode }) {
+export async function handleSignUpConfirmation(prevState, formData) {
+  console.log(formData.get('username'))
   try {
     const { isSignUpComplete, nextStep } = await confirmSignUp({
-      username,
-      confirmationCode
+      username:formData.get('username'),
+      confirmationCode:formData.get('code')
     });
     console.log('isSignUpComplete', isSignUpComplete)
     console.log('nextStep', nextStep)

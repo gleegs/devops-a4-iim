@@ -2,10 +2,12 @@
 const { useState, createContext, useEffect, useContext } = require("react");
 import { Hub } from "aws-amplify/utils";
 import { getCurrentUser } from 'aws-amplify/auth';
+import { useRouter } from "next/navigation";
 
 const UserContext = createContext({});
 
 export default function AuthContext({ children }) {
+    const router = useRouter()
     const [user, setUser] = useState(null)
 
     useEffect(() => {
@@ -23,11 +25,14 @@ export default function AuthContext({ children }) {
             const AmplifyUser = await getCurrentUser()
             if (AmplifyUser) {
                 setUser(AmplifyUser)
+                router.replace('/')
+                console.log(AmplifyUser)
             }
         }
         catch (error) {
             console.log("User unauthenticate")
             setUser(null)
+            router.replace('/login')
         }
     }
 
