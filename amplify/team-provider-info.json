@@ -22,7 +22,8 @@
       "UnauthRoleName": "amplify-gleegsdevopsa4-maxdev-155826-unauthRole",
       "StackName": "amplify-gleegsdevopsa4-maxdev-155826",
       "StackId": "arn:aws:cloudformation:eu-west-1:980426692404:stack/amplify-gleegsdevopsa4-maxdev-155826/eebeb0e0-9db5-11ee-bc8a-023d7abaafdd",
-      "AmplifyAppId": "d3ukvc1o208ctb"
+      "AmplifyAppId": "d3ukvc1o208ctb",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-gleegsdevopsa4-maxdev-155826-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
       "storage": {
@@ -30,6 +31,12 @@
       },
       "auth": {
         "gleegsdevopsa487af3044": {}
+      },
+      "function": {
+        "gleegsdevopsa487af3044PostConfirmation": {
+          "deploymentBucketName": "amplify-gleegsdevopsa4-maxdev-155826-deployment",
+          "s3Key": "amplify-builds/gleegsdevopsa487af3044PostConfirmation-36364c52316c47676a47-build.zip"
+        }
       }
     }
   }

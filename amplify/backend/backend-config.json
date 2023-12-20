@@ -2,7 +2,17 @@
   "auth": {
     "gleegsdevopsa487af3044": {
       "customAuth": false,
-      "dependsOn": [],
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "gleegsdevopsa487af3044PostConfirmation",
+          "triggerProvider": "Cognito"
+        }
+      ],
       "frontendAuthConfig": {
         "mfaConfiguration": "OFF",
         "mfaTypes": [
@@ -27,6 +37,31 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "Cognito"
+    }
+  },
+  "function": {
+    "gleegsdevopsa487af3044PostConfirmation": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_gleegsdevopsa487af3044PostConfirmation_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "gleegsdevopsa487af3044PostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_gleegsdevopsa487af3044PostConfirmation_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "gleegsdevopsa487af3044PostConfirmation"
+        }
+      ]
     }
   },
   "storage": {
