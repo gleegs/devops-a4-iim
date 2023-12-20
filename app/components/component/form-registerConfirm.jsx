@@ -5,9 +5,26 @@ import { Button } from "/app/components/ui/button"
 import { Separator } from "/app/components/ui/separator"
 import Link from "next/link"
 import { useFormState, useFormStatus } from 'react-dom';
-import { handleSignUpConfirmation } from "@/app/lib/confirmRegister"
+import { useState } from "react"
+import { confirmSignUp, autoSignIn } from 'aws-amplify/auth';
 
 export function FormRegisterConfirm({ username }) {
+  const [message, setMessage] = useState()
+
+  const handleSignUpConfirmation = async (prevState, formData) => {
+    console.log(formData.get('username'))
+    try {
+      const { isSignUpComplete, nextStep } = await confirmSignUp({
+        username: formData.get('username'),
+        confirmationCode: formData.get('code')
+      });
+      setMessage('')
+      const signInOutput = await autoSignIn();
+    } catch (error) {
+      setMessage(`${error}`.split(':')[1])
+    }
+  }
+
   const [errorMessage, dispatch] = useFormState(handleSignUpConfirmation, undefined);
 
   return (
@@ -25,6 +42,9 @@ export function FormRegisterConfirm({ username }) {
           <Input id="code" name="code" placeholder="456724" required type="text" />
         </div>
         <ConfirmButton />
+      </div>
+      <div className=" text-red-600 mt-4 text-center text-sm">
+        {message}
       </div>
       <Separator className="my-8" />
       <div className="text-black mt-4 text-center text-sm">

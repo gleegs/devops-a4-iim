@@ -9,9 +9,11 @@ import { useRouter } from "next/navigation"
 import { signUp } from 'aws-amplify/auth';
 import { Amplify } from 'aws-amplify';
 import config from '/src/aws-exports.js';
+import { useState } from "react"
 Amplify.configure(config);
 
 export function FormRegister() {
+  const [message, setMessage] = useState()
   const router = useRouter()
 
   const handleRegister = async (prevState, formData) => {
@@ -30,11 +32,13 @@ export function FormRegister() {
           autoSignIn: true // or SignInOptions e.g { authFlowType: "USER_SRP_AUTH" }
         }
       });
+      setMessage('')
       if (nextStep.signUpStep == "CONFIRM_SIGN_UP") {
         router.replace(`/confirmRegister?username=${formData.get('email')}`)
       }
       console.log('nextStep', nextStep)
     } catch (error) {
+      setMessage(`${error}`.split(':')[1])
       console.log('error signing up:', error);
     }
   }
@@ -68,6 +72,9 @@ export function FormRegister() {
             <Input id="password" name="password" placeholder="*****" required type="password" />
           </div>
           <RegisterButton />
+        </div>
+        <div className=" text-red-600 mt-4 text-center text-sm">
+          {message}
         </div>
         <Separator className="my-8" />
         <div className="text-black mt-4 text-center text-sm">
