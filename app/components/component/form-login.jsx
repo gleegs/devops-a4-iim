@@ -8,11 +8,13 @@ import { useFormState, useFormStatus } from 'react-dom';
 import { signIn } from 'aws-amplify/auth';
 import { Amplify } from 'aws-amplify';
 import config from '/src/aws-exports.js';
-import { useRouter } from "next/navigation"
 Amplify.configure(config);
+import { useRouter } from "next/navigation"
+import { useState } from "react"
 
 export function FormLogin() {
   const router = useRouter()
+  const [message, setMessage] = useState('')
 
   const login = async (prevState, formData) => {
     console.log(formData.get('email'))
@@ -23,10 +25,10 @@ export function FormLogin() {
         console.log('redirect')
         router.replace(`/confirmRegister?username=${formData.get('email')}`)
       }
-      console.log('isSignedIn :', isSignedIn)
-      console.log('next step :', nextStep)
+      router.push('/')
+      setMessage('')
     } catch (error) {
-      console.log('error signing in', error);
+      setMessage(`${error}`.split(':')[1])
     }
   }
 
@@ -49,6 +51,9 @@ export function FormLogin() {
           </div>
           <LoginButton />
         </div>
+        <div className=" text-red-600 mt-4 text-center text-sm">
+          {message}
+        </div>
         <Separator className="my-8" />
         <div className="text-black mt-4 text-center text-sm">
           Doesnt have an account yet ?&nbsp;
@@ -64,7 +69,7 @@ function LoginButton() {
   const { pending } = useFormStatus();
 
   return (
-    <Button className="w-full" type="submit" aria-disabled={pending}>
+    <Button className="w-full text-secondary" type="submit" aria-disabled={pending}>
       Login
     </Button>
   );

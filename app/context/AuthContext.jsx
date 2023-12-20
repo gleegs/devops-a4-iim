@@ -24,15 +24,14 @@ export default function AuthContext({ children }) {
         try {
             const AmplifyUser = await getCurrentUser()
             if (AmplifyUser) {
+                console.log(AmplifyUser)
                 setUser(AmplifyUser)
                 router.replace('/')
-                console.log(AmplifyUser)
             }
         }
         catch (error) {
-            console.log("User unauthenticate")
+            console.log(error)
             setUser(null)
-            router.replace('/login')
         }
     }
 
