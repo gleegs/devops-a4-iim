@@ -1,5 +1,9 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { Amplify } from 'aws-amplify';
+import config from '/src/aws-exports.js';
+import AuthContext from './context/AuthContext';
+Amplify.configure({...config, ssr: true});
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -9,9 +13,14 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <AuthContext>
+          {children}
+        </AuthContext>
+      </body>
     </html>
   )
 }

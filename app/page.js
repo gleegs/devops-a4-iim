@@ -1,6 +1,10 @@
+'use client'
 import Image from 'next/image'
+import { handleRegister } from './lib/register'
+import { login } from './lib/login'
 
 export default function Home() {
+  // handleRegister({email:'maxime.baron@test.com', password:'testtest', firstname:'Maxime', lastname:'Baron'})
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
@@ -25,6 +29,8 @@ export default function Home() {
               priority
             />
           </a>
+          {/* <button onClick={()=>{login({email:'maximebaron93@gmail.com', password:'testtest'})}}>connexion</button> */}
+          {/* <button onClick={()=>{handleRegister({email:'maximebaron93@gmail.com', password:'testtest', firstname:'Maxime', lastname:'Baron'})}}>CLIQUE</button> */}
         </div>
       </div>
 
