@@ -1,0 +1,24 @@
+{
+  "trigger": true,
+  "modules": [
+    "custom"
+  ],
+  "parentResource": "gleegsdevopsa487af3044",
+  "functionName": "gleegsdevopsa487af3044PostConfirmation",
+  "resourceName": "gleegsdevopsa487af3044PostConfirmation",
+  "parentStack": "auth",
+  "triggerEnvs": "[]",
+  "triggerDir": "/snapshot/amplify-cli/build/node_modules/@aws-amplify/amplify-category-auth/provider-utils/awscloudformation/triggers/PostConfirmation",
+  "triggerTemplate": "PostConfirmation.json.ejs",
+  "triggerEventPath": "PostConfirmation.event.json",
+  "roleName": "gleegsdevopsa487af3044PostConfirmation",
+  "skipEdit": true,
+  "permissions": {
+    "storage": {
+      "gleegsDevopsDB": [
+        "create",
+        "read"
+      ]
+    }
+  }
+}

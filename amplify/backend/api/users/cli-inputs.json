@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "paths": {
+    "/getUser": {
+      "name": "/getUser",
+      "lambdaFunction": "getUser",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "read"
+        ]
+      }
+    },
+    "/updateUser": {
+      "name": "/updateUser",
+      "lambdaFunction": "updateUser",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "update"
+        ]
+      }
+    },
+    "/users": {
+      "name": "/users",
+      "lambdaFunction": "updateTest",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "read",
+          "update"
+        ]
+      }
+    }
+  }
+}
