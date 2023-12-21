@@ -11,6 +11,7 @@ export default function Home() {
     <>
       <nav className='bg-black'>
         <div className=' px-12 py-6 flex justify-end max-w-7xl mx-auto mb-12'>
+          {user ? <Link className='text-secondary font-bold mr-8' href={'/profile'}>Profile</Link> : ''}
           {user ? <button className='text-secondary font-bold' onClick={signOut}>Sign Out</button> : <Link className='text-secondary font-bold' href={'/login'}>Sign In</Link>}
         </div>
       </nav>

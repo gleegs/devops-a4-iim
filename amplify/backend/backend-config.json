@@ -9,6 +9,22 @@
           ],
           "category": "function",
           "resourceName": "getUser"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "updateUser"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "updateTest"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -87,6 +103,28 @@
       ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "updateTest": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "updateUser": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "gleegsDevopsDB"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "parameters": {
@@ -119,6 +157,38 @@
         {
           "category": "function",
           "resourceName": "gleegsdevopsa487af3044PostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_updateTest_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "updateTest"
+        }
+      ]
+    },
+    "AMPLIFY_function_updateTest_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "updateTest"
+        }
+      ]
+    },
+    "AMPLIFY_function_updateUser_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "updateUser"
+        }
+      ]
+    },
+    "AMPLIFY_function_updateUser_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "updateUser"
         }
       ]
     }

@@ -38,15 +38,22 @@ export default function AuthContext({ children }) {
                     obj[value[0]] = value[1]['S']
                 })
                 console.log('href', !obj.imageHref)
-                if (!obj.imageHref) {
+                try {
+                    const url = await getUrl({
+                        key: `${obj.id}_profil.png`,
+                        options: {
+                            accessLevel: 'public', // can be 'private', 'protected', or 'guest' but defaults to `guest`
+                            validateObjectExistence: true,  // defaults to false
+                        },
+                    });
+                    console.log(url)
+                    obj.imageHref = url.url.href
+                } catch (err) {
                     const url = await getUrl({
                         key: 'default_profil.svg',
                         options: {
                             accessLevel: 'public', // can be 'private', 'protected', or 'guest' but defaults to `guest`
-                            //   targetIdentityId?: 'XXXXXXX', // id of another user, if `accessLevel` is `guest`
                             validateObjectExistence: false,  // defaults to false
-                            //   expiresIn?: 20 // validity of the URL, in seconds. defaults to 900 (15 minutes) and maxes at 3600 (1 hour)
-                            // useAccelerateEndpoint: true // Whether to use accelerate endpoint.
                         },
                     });
                     console.log(url)

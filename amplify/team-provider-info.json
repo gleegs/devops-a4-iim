@@ -42,6 +42,14 @@
         "getUser": {
           "deploymentBucketName": "amplify-gleegsdevopsa4-maxdev-155826-deployment",
           "s3Key": "amplify-builds/getUser-2f547851782b4e754d42-build.zip"
+        },
+        "updateUser": {
+          "deploymentBucketName": "amplify-gleegsdevopsa4-maxdev-155826-deployment",
+          "s3Key": "amplify-builds/updateUser-7633514d4d554d325370-build.zip"
+        },
+        "updateTest": {
+          "deploymentBucketName": "amplify-gleegsdevopsa4-maxdev-155826-deployment",
+          "s3Key": "amplify-builds/updateTest-5a5a54304c79336b6543-build.zip"
         }
       },
       "api": {
