@@ -1,6 +1,8 @@
 {
   "version": "1",
   "cognitoConfig": {
+    "identityPoolName": "gleegsdevopsa487af3044_identitypool_ad86454d",
+    "allowUnauthenticatedIdentities": false,
     "resourceNameTruncated": "gleegs87af3044",
     "userPoolName": "gleegsdevopsa487af3044_userpool_87af3044",
     "autoVerifiedAttributes": [
@@ -35,7 +37,7 @@
     "userpoolClientSetAttributes": false,
     "sharedId": "87af3044",
     "resourceName": "gleegsdevopsa487af3044",
-    "authSelections": "userPoolOnly",
+    "authSelections": "identityPoolAndUserPool",
     "useDefault": "manual",
     "usernameAttributes": [
       "email"
@@ -80,7 +82,9 @@
     "parentStack": {
       "Ref": "AWS::StackId"
     },
-    "authTriggerConnections": "[\n  {\n    \"triggerType\": \"PostConfirmation\",\n    \"lambdaFunctionName\": \"gleegsdevopsa487af3044PostConfirmation\"\n  }\n]",
+    "authTriggerConnections": [
+      "{\"triggerType\":\"PostConfirmation\",\"lambdaFunctionName\":\"gleegsdevopsa487af3044PostConfirmation\"}"
+    ],
     "permissions": []
   }
 }

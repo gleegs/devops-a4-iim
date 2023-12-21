@@ -12,5 +12,13 @@
   "triggerTemplate": "PostConfirmation.json.ejs",
   "triggerEventPath": "PostConfirmation.event.json",
   "roleName": "gleegsdevopsa487af3044PostConfirmation",
-  "skipEdit": true
+  "skipEdit": true,
+  "permissions": {
+    "storage": {
+      "gleegsDevopsDB": [
+        "create",
+        "read"
+      ]
+    }
+  }
 }
